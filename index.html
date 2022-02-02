@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Painel COVID-19 em Arapiraca</title>
+    <link href="estilo.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+
+    <section class="menu">
+        <h1>Painel COVID-19 em Arapiraca</h1>
+        <a href="index.html" class="opcoes">Início</a>
+        <a href="CSV.html" class="opcoes">Arquivo.csv</a>
+        <a href="Graficos.html" class="opcoes">Gráficos</a>
+        <a href="Obitos.html" class="opcoes">Números de óbitos (últimos 7 dias)</a>
+    </section>
+
+    <section class="principal">
+        <div class="blocos">
+            <h2 id="casos" class="titulo">Números de casos confirmados</h2>
+        </div>
+        <div class="blocos">
+            <h2 id="obitos" class="titulo">Números de óbitos</h2>
+        </div>
+        <div class="blocos">
+            <h2 id="vacinados" class="titulo">Números de pessoas vacinadas</h2>
+        </div>
+        <div class="blocos">
+            <h2 id="mortes" class="titulo">Mortes nos últimos 7 dias</h2>
+        </div>
+    </section>
+
+    <section class="principal">
+        <div>
+            <canvas id="graf1" class="blocos" width="400" height="400"></canvas>
+        </div>
+        <div>
+            <canvas id="graf2" class="blocos" width="400" height="400"></canvas>
+        </div>
+        <div>
+            <canvas id="graf3" class="blocos" width="400" height="400"></canvas>
+        </div>
+        <div>
+            <canvas id="graf4" class="blocos" width="400" height="400"></canvas>
+        </div>
+    </section>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>

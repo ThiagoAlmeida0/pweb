@@ -1,0 +1,55 @@
+body {
+    background: whitesmoke;
+    margin: 0px;
+    height: 100%;
+    font-family: Arial;
+    font-size: 18px;
+}
+
+.blocos {
+    display: flex;
+    max-width: 100%;
+    border-color: white;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 3px 3px 10px rgb(19, 36, 36);
+    margin: 20px;
+}
+
+.blocos:hover {
+    border-color: #7fffd4;
+    box-shadow: 3px 3px 10px #7fffd4;
+}
+
+.principal {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.titulo {
+    margin-left: 20px;
+    padding: 10px;
+}
+
+.opcoes {
+    display: flex;
+    color: white;
+    margin: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    background: rgb(19, 36, 36);
+    border: 1px solid rgb(19, 36, 36);
+    box-shadow: 3px 3px 10px gray;
+}
+
+.menu h1 {
+    color: white;
+}
