@@ -6,6 +6,54 @@ const obitos = document.getElementById('#obitos');
 const vacinados = document.getElementById('#vacinados');
 const mortes = document.getElementById('#morte');
 
+
+//---------------------------------------------------------------------------
+//                         DADOS CSV
+
+let url_caso_full = "";
+let url_caso = "";
+let url_obito = "";
+
+//caso_full
+Papa.parse(url_caso_full, {
+    download: true,
+    header: true,
+    complete: function (results) {
+        results_caso_full(results.data);
+    }
+});
+
+function results_caso_full(results){
+    var dados_caso_full = results;
+}
+
+//caso
+Papa.parse(url_caso_full, {
+    download: true,
+    header: true,
+    complete: function (results) {
+        results_caso_full(results.data);
+    }
+});
+
+function results_caso(results){
+    var dados_caso = results;
+}
+
+//obitos
+Papa.parse(url_caso_full, {
+    download: true,
+    header: true,
+    complete: function (results) {
+        results_caso_full(results.data);
+    }
+});
+
+function results_obito(results){
+    var dados_obito = results;
+}
+
+
 //---------------------------------------------------------------------------
 //                          GRÁFICOS DAS MÉTRICAS
 //gráfico 1: Infecções covid-19 nos últimos 5 meses (02/10/2021 a 02/02/2022)
