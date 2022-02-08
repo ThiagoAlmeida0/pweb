@@ -10,9 +10,9 @@ const mortes = document.getElementById('#morte');
 //---------------------------------------------------------------------------
 //                         DADOS CSV
 
-let url_caso_full = "";
-let url_caso = "";
-let url_obito = "";
+let url_caso_full = "https://github.com/ThiagoAlmeida0/pweb/blob/720c26bbb925164c1effb49ff66efaaddce89472/arquivos%20csv/caso_full.csv";
+let url_caso = "https://github.com/ThiagoAlmeida0/pweb/blob/720c26bbb925164c1effb49ff66efaaddce89472/arquivos%20csv/caso.csv";
+let url_obito = "https://github.com/ThiagoAlmeida0/pweb/blob/720c26bbb925164c1effb49ff66efaaddce89472/arquivos%20csv/obito_cartorio.csv";
 
 //caso_full
 Papa.parse(url_caso_full, {
@@ -20,6 +20,7 @@ Papa.parse(url_caso_full, {
     header: true,
     complete: function (results) {
         results_caso_full(results.data);
+        console.log(results.data);
     }
 });
 
