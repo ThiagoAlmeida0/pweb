@@ -3,30 +3,50 @@
 
 const casos = document.getElementById('#casos');
 const obitos = document.getElementById('#obitos');
-const novos_casos = document.getElementById('#novos_casos');
+const vacinas = document.getElementById('#vacinas');
 const mortes = document.getElementById('#morte');
 
 
 //---------------------------------------------------------------------------
 //                         DADOS CSV
 
-let url_arquivo_csv = "https://raw.githubusercontent.com/ThiagoAlmeida0/pweb/main/arquivos%20csv/arquivo_dashboard.csv";
+let url_arquivo_csv = "https://raw.githubusercontent.com/ThiagoAlmeida0/pweb/main/arquivo_dashboard.csv";
+let url_vacinacao = "https://raw.githubusercontent.com/ThiagoAlmeida0/pweb/main/arquivo_vac.csv"
 
 Papa.parse(url_arquivo_csv, {
     download: true,
     header: true,
     complete: function (results) {
-        dados(results.data);
+        dados_gerais(results.data);
     }
 });
 
-function dados(results){
+Papa.parse(url_vacinacao, {
+    download: true,
+    header: true,
+    complete: function (results) {
+        dados_vac(results.data);
+        }
+    }
+);
+
+function dados_gerais(results){
     const dado = results;
     console.log(dado[0].last_available_confirmed);
     grafico1(dado[99].last_available_confirmed, dado[69].last_available_confirmed,dado[38].last_available_confirmed,dado[7].last_available_confirmed, dado[0].last_available_confirmed);
     grafico2(dado[99].last_available_deaths, dado[69].last_available_deaths,dado[38].last_available_deaths,dado[7].last_available_deaths, dado[0].last_available_deaths);
-    grafico3(dado[99].new_confirmed, dado[69].new_confirmed,dado[38].new_confirmed,dado[7].new_confirmed, dado[0].new_confirmed);
     grafico4(dado[6].new_deaths, dado[5].new_deaths,dado[4].new_deaths,dado[3].new_deaths,dado[2].new_deaths,dado[1].new_deaths,dado[0].new_deaths);
+};
+
+function dados_vac(results){
+    const dado = results;
+    for(var i = 0; i < 4; i++){
+        console.log(dado[0].total);
+        dado[i].total = dado[i].total.replace(/,/g, "");
+        dado[i].total = parseInt(dado[i].total);
+        console.log(dado[3].total);
+    }
+    grafico3(dado[0].total, dado[1].total, dado[2].total, dado[3].total);
 };
 
 
@@ -70,7 +90,7 @@ function grafico1(out, nov, dez, jan, fev){
 
         title: {
             display: true,
-            text: 'Novos casos confirmados',
+            text: 'Número de vacinados',
             fontSize: 20
         },
 
@@ -167,15 +187,15 @@ function grafico2(out, nov, dez, jan, fev){
 
 //gráfico 3: Novos casos confirmados nos últimos 5 meses (02/10/2021 a 02/02/2022)
 
-function grafico3(out, nov, dez, jan, fev){
+function grafico3(t1, t2, t3, t4){
     const grafico3 = document.getElementById('graf3');
     const graf3 = new Chart(grafico3, {
         type: 'line',
         data: {
-            labels: ['Outubro (2021)', 'Novembro (2021)', 'Dezembro (2021)', 'Janeiro (2022)', 'Fevereiro (2022)'],
+            labels: ['Butantan/Sinovac', 'Fiocruz/Astrazeneca', 'Janssen', 'Pfizer/Biotech'],
             datasets: [{
-                label: 'Novos casos',
-                data: [out, nov, dez, jan, fev],
+                label: 'Vacinação',
+                data: [t1, t2, t3, t4],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',

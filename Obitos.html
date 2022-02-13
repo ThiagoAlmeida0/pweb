@@ -4,18 +4,30 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Óbitos por COVID-19</title>
+    <title>Óbitos</title>
     <link href="estilo.css" rel="stylesheet" type="text/css" />
+    <script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
     <section class="menu">
-        <h1>Número de mortes por COVID-19 para os últimos 7 dias</h1>
+        <h1>Números de óbitos</h1>
         <a href="index.html" class="opcoes">Início</a>
         <a href="CSV.html" class="opcoes">Arquivo.csv</a>
         <a href="Graficos.html" class="opcoes">Gráficos</a>
-        <a href="Obitos.html" class="opcoes">Números de óbitos (últimos 7 dias)</a>
-        <script src="index.js"></script>
+        <a href="Obitos.html" class="opcoes">Números de óbitos</a>
+    </section>
+
+    <section class="principal2">
+        <div>
+            <canvas id="graf2" class="blocos" width="400" height="400"></canvas>
+        </div>
+        <div>
+            <canvas id="graf4" class="blocos" width="400" height="400"></canvas>
+        </div>
+    </section>
+    <script src="index.js"></script>
 </body>
 
 </html>
