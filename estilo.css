@@ -32,8 +32,19 @@ body {
 }
 
 .titulo {
-    margin-left: 20px;
+    margin-left: 40px;
     padding: 10px;
+}
+
+.subtitulo{
+    margin-top: 58px;
+    margin-right: 21%;
+    text-align: justify;
+    font-weight: bold;
+}
+
+.dadosgerais{
+    color: #043C00;
 }
 
 .opcoes {

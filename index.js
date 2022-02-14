@@ -1,12 +1,3 @@
-//              ARQUIVO.CSV
-//Número de casos, óbitos e vacinas e mortes
-
-const casos = document.getElementById('#casos');
-const obitos = document.getElementById('#obitos');
-const vacinas = document.getElementById('#vacinas');
-const mortes = document.getElementById('#morte');
-
-
 //---------------------------------------------------------------------------
 //                         DADOS CSV
 
@@ -36,6 +27,16 @@ function dados_gerais(results){
     grafico1(dado[99].last_available_confirmed, dado[69].last_available_confirmed,dado[38].last_available_confirmed,dado[7].last_available_confirmed, dado[0].last_available_confirmed);
     grafico2(dado[99].last_available_deaths, dado[69].last_available_deaths,dado[38].last_available_deaths,dado[7].last_available_deaths, dado[0].last_available_deaths);
     grafico4(dado[6].new_deaths, dado[5].new_deaths,dado[4].new_deaths,dado[3].new_deaths,dado[2].new_deaths,dado[1].new_deaths,dado[0].new_deaths);
+    const casos = document.getElementById("casos");
+    casos.textContent = dado[0].last_available_confirmed;
+    const obitos = document.getElementById("obitos");
+    obitos.textContent = dado[0].last_available_deaths;
+    const mortes = document.getElementById("mortes");
+    for(var i = 0; i < 7; i++){
+        dado[i].new_deaths = parseInt(dado[i].new_deaths);
+        var soma_mortes = dado[0].new_deaths + dado[6].new_deaths + dado[5].new_deaths + dado[4].new_deaths + dado[3].new_deaths + dado[2].new_deaths + dado[1].new_deaths;
+    }
+    mortes.textContent = soma_mortes;
 };
 
 function dados_vac(results){
@@ -44,9 +45,13 @@ function dados_vac(results){
         console.log(dado[0].total);
         dado[i].total = dado[i].total.replace(/,/g, "");
         dado[i].total = parseInt(dado[i].total);
+        const vacinas = document.getElementById("vacinas");
+        var soma_vac = dado[0].total + dado[1].total + dado[2].total + dado[3].total;
+        vacinas.textContent = soma_vac;
         console.log(dado[3].total);
     }
     grafico3(dado[0].total, dado[1].total, dado[2].total, dado[3].total);
+    
 };
 
 
