@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 //                         DADOS CSV
 
-let url_arquivo_csv = "https://raw.githubusercontent.com/ThiagoAlmeida0/pweb/main/arquivo_dashboard.csv";
+let url_arquivo_csv = "https://github.com/ThiagoAlmeida0/pweb/blob/main/arquivo_dashboard.csv";
 let url_vacinacao = "https://raw.githubusercontent.com/ThiagoAlmeida0/pweb/main/arquivo_vac.csv"
 
 Papa.parse(url_arquivo_csv, {
